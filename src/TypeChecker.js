@@ -25,6 +25,17 @@ export default function checkType(value, configuration) {
         case "boolean":
         case "number":
             return typeof value === configuration.type
+        case "array":
+            if(!Array.isArray(value)) {
+                return false
+            }
+
+            value.forEach(item => {
+                if(!checkType(item, configuration.propertiesType)) {
+                    return false
+                }
+            });
+            return true
 
 
         default:
