@@ -1,0 +1,22 @@
+{
+  "name": "ReactIsHell",
+  "version": "1.0.0",
+  "description": "Projet de mini react ESGI 2021",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha --require babel-core/register",
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "materialize-css": "^1.0.0-rc.2",
+    "mocha": "^7.0.1",
+    "pushstate-server": "^3.1.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
