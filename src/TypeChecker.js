@@ -36,7 +36,29 @@ export default function checkType(value, configuration) {
                 }
             });
             return true
+        case "object":
+            if(value instanceof Object) {
+                if(configuration.properties == null) {
+                    throw new Error("Properties must be specified when type checking an object");
+                }
+                for(const key in configuration.properties) {
+                    // Avoid checking prototype properties
+                    if(configuration.properties.hasOwnProperty(key)) {
 
+                        // Check that the given object has a key corresponding to the configuration
+                        let hasKey = value.hasOwnProperty(key);
+                        if(!hasKey) {
+                            return false
+                        }
+                        // Check that the given object property has the correct type
+                        if(!checkType(value[key], configuration.properties[key])) {
+                            return false
+                        }
+                    }
+                }
+                return true
+            }
+            return false
 
         default:
             throw new Error("Unsupported type " + configuration.type);
