@@ -1,8 +1,17 @@
 import Component from "../Component.js";
+import { Core } from "../core.js";
 import Item from "./Item.js";
 
 export default class List extends Component {
-    propertiesConfiguration = {
+    createHTML() {
+        console.log(this.props);
+        this.props?.map((user) => console.log(user?.firstName));
+
+        return Core.createElement("p", null, "one");
+    }
+
+    //PROTYPE
+    proptypes = {
         type: "array",
         propertiesType: {
             type: "object",
@@ -19,33 +28,4 @@ export default class List extends Component {
             },
         },
     };
-
-    render() {
-        this.template =
-            "<h2>Liste des départements</h2>" +
-            " <table>\n" +
-            "        <thead>\n" +
-            "          <tr>\n" +
-            "              <th>Nom</th>\n" +
-            "              <th>Code</th>\n" +
-            "              <th>Code région</th>\n" +
-            "          </tr>\n" +
-            "        </thead>\n" +
-            "<tbody>";
-
-        let promise = Promise.resolve("");
-        for (let i = 0; i < this.props.length; i++) {
-            promise = promise
-                .then(() => {
-                    return new Item().display(this.props[i]);
-                })
-                .then((item) => {
-                    this.template += item;
-                });
-        }
-
-        return promise.then(() => {
-            this.template += "</tbody>\n" + "      </table>";
-        });
-    }
 }

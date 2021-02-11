@@ -1,7 +1,7 @@
 export default function checkType(value, configuration) {
     //Configuration represente l'objet que auquel doit correspondre notre variable
     //Exemple
-    //propertiesConfiguration = {
+    //proptypes = {
     //         type: "array",
     //         propertiesType: {
     //             type: "object",
