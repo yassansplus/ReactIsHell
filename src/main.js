@@ -1,33 +1,30 @@
-import Router from './Router.js';
+import Router from "./Router.js";
 import HelloComponent from "./HelloComponent.js";
 
-
-let root = document.getElementById('root');
+let root = document.getElementById("root");
 
 const router = new Router();
 
-router.get('/pipi', () => {
+router.get("/pipi", () => {
     console.log(root);
     root.innerHTML = "PipiPooPooCheck";
 });
 
-router.get('/t-max', () => {
+router.get("/t-max", () => {
     console.log(root);
     root.innerHTML = "T-Max pot Akrapovic";
 });
-router.get('/hello', () => {
-    let user =  {
+router.get("/hello", () => {
+    let user = {
         fullName: {
             firstName: "Wassim",
-            lastName: "Dahmane"
-        }
-    }
+            lastName: "Dahmane",
+        },
+    };
     let helloComponent = new HelloComponent();
-    helloComponent.display(user)
-        .then((template) => {
-            root.innerHTML = template;
-        })
-
+    helloComponent.display(user).then((template) => {
+        root.innerHTML = template;
+    });
 });
 
 router.init();
