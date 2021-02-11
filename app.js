@@ -1,8 +1,13 @@
-var app = require('pushstate-server');
+const app = require("pushstate-server");
+require("dotenv").config();
 
-app.start({
-    port: 3000,
-    directory: './src'
-},() => {
-    console.log("Server running, navigate to http://localhost:3000")
+const config = {
+    port: process.env.PORT,
+    directory: "./src",
+};
+
+app.start(config, () => {
+    console.log(
+        `Server running, navigate to http://localhost:${config.port || 3000}`
+    );
 });
