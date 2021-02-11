@@ -4,10 +4,11 @@ import Item from "./Item.js";
 
 export default class List extends Component {
     createHTML() {
-        console.log(this.props);
-        this.props?.map((user) => console.log(user?.firstName));
-
-        return Core.createElement("p", null, "one");
+        return Core.createElement(
+            "p",
+            null,
+            ...this.props.map((user) => user.firstName)
+        );
     }
 
     //PROTYPE
