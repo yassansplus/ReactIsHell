@@ -1,3 +1,13 @@
+const doubleCurlyBraceRegex = /{{\s*([^}]+)\s*}}/g
+
+function interpolate(value) {
+    return this.replace(doubleCurlyBraceRegex, (m, k) => {
+        return value.prop_access(k);
+    })
+}
+
+String.prototype.interpolate = interpolate;
+
 function prop_access(path) {
     let pathComponents = path.trim().split('.');
     let value = this[pathComponents[0]];
