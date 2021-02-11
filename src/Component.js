@@ -3,7 +3,6 @@ import { Core } from "./core.js";
 
 export default class Component {
     proptypes = null;
-    template = Core.render(this.createHTML());
 
     // Display is asynchronous and returns a Promise, because it needs to wait for render(...) to be completed
     display(newProps) {
