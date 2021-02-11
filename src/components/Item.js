@@ -1,14 +1,12 @@
 import Component from "../Component.js";
+import { Core } from "../core.js";
 
 export default class Item extends Component {
-    template =
-        "<tr>\n" +
-        "            <td>{{nom}}</td>\n" +
-        "            <td>{{code}}</td>\n" +
-        "            <td>{{codeRegion}}</td>\n" +
-        "          </tr>";
+    createHTML() {
+        return Core.createElement("p", null, "Child");
+    }
 
-    propertiesConfiguration = {
+    proptypes = {
         type: "object",
         properties: {
             nom: {
