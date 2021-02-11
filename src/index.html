@@ -2,10 +2,34 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <title>Title</title>
+        <title>Mini-react</title>
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
     </head>
-    <body>
+    <body class="container mx-auto">
         <div id="root"></div>
+
+        <nav class="text-blue-700">
+            <ul>
+                <li>
+                    <a href="javascript:history.pushState(null,null, '/api')"
+                        >API</a
+                    >
+                </li>
+                <li>
+                    <a href="javascript:history.pushState(null,null, '/users')"
+                        >Users</a
+                    >
+                </li>
+                <li>
+                    <a href="javascript:history.pushState(null,null, '/hello')"
+                        >Hello World</a
+                    >
+                </li>
+            </ul>
+        </nav>
     </body>
 
     <script type="module" src="./StringInterpolate.js"></script>
