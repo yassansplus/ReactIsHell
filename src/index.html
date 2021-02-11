@@ -8,28 +8,21 @@
             rel="stylesheet"
         />
     </head>
-    <body class="container mx-auto">
-        <div id="root"></div>
-
-        <nav class="text-blue-700">
-            <ul>
+    <body class="container mx-auto bg-blue-300 my-4">
+        <nav class="text-blue-700 bg-blue-100 rounded-xl p-4">
+            <ul class="flex justify-around">
                 <li>
-                    <a href="javascript:history.pushState(null,null, '/api')"
-                        >API</a
-                    >
+                    <a href="/api">API</a>
                 </li>
                 <li>
-                    <a href="javascript:history.pushState(null,null, '/users')"
-                        >Users</a
-                    >
+                    <a href="/users">Users</a>
                 </li>
                 <li>
-                    <a href="javascript:history.pushState(null,null, '/hello')"
-                        >Hello World</a
-                    >
+                    <a href="/hello">Hello World</a>
                 </li>
             </ul>
         </nav>
+        <div id="root"></div>
     </body>
 
     <script type="module" src="./StringInterpolate.js"></script>
