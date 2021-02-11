@@ -1,13 +1,14 @@
 import checkType from "./TypeChecker.js";
+import { Core } from "./core.js";
 
 export default class Component {
-    propertiesConfiguration = null;
-    template = "";
+    proptypes = null;
+    template = Core.render(this.createHTML());
 
     // Display is asynchronous and returns a Promise, because it needs to wait for render(...) to be completed
     display(newProps) {
         if (newProps) {
-            if (!checkType(newProps, this.propertiesConfiguration)) {
+            if (!checkType(newProps, this.proptypes)) {
                 throw new Error("Wrong configuration");
             }
         }
@@ -30,9 +31,8 @@ export default class Component {
     }
 
     // Render is asynchronous because we might want to load some datas from an external source before compiling
-    // the template.vasy c
     render() {
-        this.template = this.template.interpolate(this.props);
+        this.template = Core.render(this.createHTML());
         return Promise.resolve(null);
     }
 }
