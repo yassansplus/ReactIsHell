@@ -1,9 +1,20 @@
 import Component from "./Component.js";
-
+import { Core } from "./core.js";
 export default class HelloComponent extends Component {
-    template = `<h1 class="teal-text center">Hello je m'appelle {{ fullName.firstName }} {{ fullName.lastName }} et j'aime le zouk love.</h1>`;
+    createHTML() {
+        return Core.createElement(
+            "div",
+            null,
+            Core.createElement(
+                "h1",
+                null,
+                `Hello ${this.props?.fullName?.firstName} ${this.props?.fullName?.lastName} `
+            )
+        );
+    }
 
-    propertiesConfiguration = {
+    //PROTYPE
+    proptypes = {
         type: "object",
         properties: {
             fullName: {
