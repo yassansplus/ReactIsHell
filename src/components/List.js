@@ -6,7 +6,7 @@ export default class List extends Component {
     createHTML() {
         return Core.createElement(
             "p",
-            null,
+            { className: "text-red-700" },
             ...this.props.map((user) => user.firstName)
         );
     }
