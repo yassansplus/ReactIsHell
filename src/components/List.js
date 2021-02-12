@@ -5,8 +5,24 @@ export default class List extends Component {
     createHTML() {
         return Core.createElement(
             "div",
-            null,
-            ...this.props.map((user) => Core.createElement("p", null, user))
+            { className: "flex w-10/12 justify-around" },
+            ...this.props.map((user) =>
+                Core.createElement(
+                    "div",
+                    { className: "flex flex-col items-center justify-center" },
+                    Core.createElement(
+                        "img",
+                        {
+                            src: user.img,
+                            className: "rounded-full",
+                            style: "width:350px;height:350px;",
+                        },
+                        null
+                    ),
+                    Core.createElement("p", { className: "p-3" }, user.name),
+                    Core.createElement("p", null, user.role)
+                )
+            )
         );
     }
 
@@ -16,13 +32,13 @@ export default class List extends Component {
         propertiesType: {
             type: "object",
             properties: {
-                nom: {
+                name: {
                     type: "string",
                 },
-                code: {
+                img: {
                     type: "string",
                 },
-                codeRegion: {
+                img: {
                     type: "string",
                 },
             },

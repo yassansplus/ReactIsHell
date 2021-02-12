@@ -5,11 +5,11 @@ export default class HelloComponent extends Component {
     createHTML() {
         return Core.createElement(
             "div",
-            { className: "bg-red-100" },
+            null,
             Core.createElement(
                 "h1",
-                null,
-                "Hello  {{ fullName.firstName }}".interpolate(this.props)
+                { className: "text-5xl" },
+                "Hello  {{ fullName.firstName }} 👋🏼 !".interpolate(this.props)
             )
         );
     }

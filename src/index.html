@@ -8,23 +8,24 @@
             rel="stylesheet"
         />
     </head>
-    <body class="container mx-auto bg-blue-300 my-4">
-        <!-- <nav class="text-blue-700 bg-blue-100 rounded-xl p-4">
-            <ul class="flex justify-around">
-                <li>
-                    <a href="/api">API</a>
+    <body class="container mx-auto bg-blue-300 my-4 font-semibold">
+        <nav>
+            <ul class="flex justify-around rounded-xl p-4 bg-indigo-100">
+                <li
+                    class="cursor-pointer bg-indigo-400 rounded-xl px-4 py-1"
+                    onclick="window.location.hash = 'users'"
+                >
+                    Users
                 </li>
-                <li>
-                    <a href="/users">Users</a>
-                </li>
-                <li>
-                    <a href="/hello">Hello World</a>
+                <li
+                    class="cursor-pointer bg-indigo-400 rounded-xl px-4 py-1"
+                    onclick="window.location.hash = 'hello'"
+                >
+                    Hello
                 </li>
             </ul>
-        </nav> -->
-        <div onclick="window.location.hash = 'users'">okokok</div>
-        <div onclick="window.location.hash = 'hello'">okokok</div>
-        <div id="root"></div>
+        </nav>
+        <div id="root" class="flex justify-center pt-10"></div>
     </body>
 
     <script type="module" src="./StringInterpolate.js"></script>
