@@ -38,7 +38,7 @@ export default class List extends Component {
                 img: {
                     type: "string",
                 },
-                img: {
+                role: {
                     type: "string",
                 },
             },

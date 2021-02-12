@@ -12,9 +12,7 @@ export default class Component {
             }
         }
         if (this.shouldUpdate(newProps)) {
-            return this.render().then(() => {
-                return this.template;
-            });
+            return this.render().then(() => this.template);
         } else {
             return Promise.resolve(this.template);
         }

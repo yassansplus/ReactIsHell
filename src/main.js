@@ -7,7 +7,6 @@ const root = document.getElementById("root");
 const router = new Router();
 
 router.get("#users", () => {
-    // const users = ["Wassim", "Théo", "Yassine"];
     const users = [
         {
             name: "Théo",
