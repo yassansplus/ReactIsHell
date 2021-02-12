@@ -1,13 +1,12 @@
 import Component from "../Component.js";
 import { Core } from "../core.js";
-import Item from "./Item.js";
 
 export default class List extends Component {
     createHTML() {
         return Core.createElement(
-            "p",
-            { className: "text-red-700" },
-            ...this.props.map((user) => user.firstName)
+            "div",
+            null,
+            ...this.props.map((user) => Core.createElement("p", null, user))
         );
     }
 

@@ -1,14 +1,15 @@
-import Component from "./Component.js";
-import { Core } from "./core.js";
+import Component from "../Component.js";
+import { Core } from "../core.js";
+
 export default class HelloComponent extends Component {
     createHTML() {
         return Core.createElement(
             "div",
-            null,
+            { className: "bg-red-100" },
             Core.createElement(
                 "h1",
                 null,
-                `Hello ${this.props?.fullName?.firstName} ${this.props?.fullName?.lastName} `
+                "Hello  {{ fullName.firstName }}".interpolate(this.props)
             )
         );
     }
@@ -21,9 +22,6 @@ export default class HelloComponent extends Component {
                 type: "object",
                 properties: {
                     firstName: {
-                        type: "string",
-                    },
-                    lastName: {
                         type: "string",
                     },
                 },
