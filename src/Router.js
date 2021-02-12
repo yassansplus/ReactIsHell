@@ -14,19 +14,13 @@ export default class Router {
                 throw new Error(`The uri ${route.uri} already exists`);
         });
 
-        const route = { uri, callback };
-        this.routes.push(route);
+        this.routes.push({ uri, callback });
     }
 
     init() {
-        /*
-            Le code ci-dessous vas s'exécuter sur chaque routes existantes et vérifier s'il passe les tests (en l'occurence la regex correspondant à la route recherchée).
-            path = route recherchée (/t-max par exemple)
-            regex = la route existante sur laquelle on est entrain de boucler
-            Si path = regex(route), on fais un callback sur la bonne URI pour retrouver son contenu avec get().
-         */
         this.routes.some((route) => {
-            let path = window.location.pathname;
+            let path = window.location.hash;
+
             let regex = new RegExp(`^${route.uri}$`);
 
             if (path.match(regex)) {

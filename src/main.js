@@ -1,32 +1,13 @@
 import Router from "./Router.js";
-import HelloComponent from "./HelloComponent.js";
-// import BasicComponent from "./components/BasicComponent.js";
+import HelloComponent from "./components/HelloComponent.js";
 import List from "./components/List.js";
 
-let root = document.getElementById("root");
+const root = document.getElementById("root");
 
 const router = new Router();
 
-//POC
-// router.get("/", () => {
-//     let basicComponent = new BasicComponent();
-//     basicComponent.display(null).then((template) => {
-//         root.appendChild(template);
-//     });
-// });
-
-router.get("/users", () => {
-    const users = [
-        {
-            firstName: "Wassim",
-        },
-        {
-            firstName: "Théo",
-        },
-        {
-            firstName: "Yassine",
-        },
-    ];
+router.get("#users", () => {
+    const users = ["Wassim", "Théo", "Yassine"];
 
     const userList = new List();
     userList.display(users).then((template) => {
@@ -34,11 +15,10 @@ router.get("/users", () => {
     });
 });
 
-router.get("/hello", () => {
+router.get("#hello", () => {
     const user = {
         fullName: {
             firstName: "Wassim",
-            lastName: "Dahmane",
         },
     };
     const helloComponent = new HelloComponent();
@@ -46,5 +26,13 @@ router.get("/hello", () => {
         root.appendChild(template);
     });
 });
-
 router.init();
+
+window.addEventListener(
+    "hashchange",
+    () => {
+        root.innerHTML = "";
+        router.init();
+    },
+    false
+);
